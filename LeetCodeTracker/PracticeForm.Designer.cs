@@ -127,6 +127,7 @@
             button2.TabIndex = 13;
             button2.Text = "Finish";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // timer1
             // 
@@ -195,7 +196,7 @@
             TimerLabel.TabIndex = 17;
             TimerLabel.Text = "0:00";
             // 
-            // RandProbPopUp
+            // PracticeForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -211,7 +212,7 @@
             Controls.Add(linkLabel1);
             Controls.Add(label3);
             Controls.Add(label1);
-            Name = "RandProbPopUp";
+            Name = "PracticeForm";
             Text = "LeetCode Practice";
             ResumeLayout(false);
             PerformLayout();

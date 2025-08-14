@@ -131,7 +131,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Name = "label1";
             // 
-            // Form1
+            // MainForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
@@ -147,7 +147,7 @@
             ForeColor = SystemColors.Control;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "MainForm";
             FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             contextMenuStrip1.ResumeLayout(false);

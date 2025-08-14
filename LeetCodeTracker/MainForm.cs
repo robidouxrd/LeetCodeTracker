@@ -47,21 +47,23 @@ namespace LeetCodeTracker
             addNewPopUp.ShowDialog();
             LcProblem newProblem = new LcProblem(addNewPopUp.ProblemName, addNewPopUp.ProblemDescripion, addNewPopUp.ProblemDifficulty);
             problems.addProblem(newProblem);
+            PopulateListView(FindCheckedRadioButton());
+            foreach (LcProblem prob in problems.ProblemList) 
+            {
+                Console.WriteLine(prob.Name);
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PracticeForm randPopUp = new PracticeForm(getProbFromListView(),problems);
-            //try
-            //{
-            //    randPopUp.changeProblemName(problems.getRandProblem().Name);
-            //}
-            //catch (Exception ex)
-            //{
-            //    randPopUp.changeProblemName("No problems added yet");
+            if (!problems.IsEmpty())
+            {
+                PracticeForm randPopUp = new PracticeForm(getProbFromListView(), problems);
+                randPopUp.ShowDialog();
+                PopulateListView(FindCheckedRadioButton());
+            }
 
-            //}
-            randPopUp.ShowDialog();
         }
 
         private LcProblem getProbFromListView()
@@ -107,10 +109,12 @@ namespace LeetCodeTracker
         {
             listView1.Items.Clear();
             listView1.Columns.Clear();
-            listView1.Columns.Add("Name", 250);
-            listView1.Columns.Add("Difficulty", 200);
-            listView1.Columns.Add("Attempts", 200);
-            listView1.Columns.Add("Success Rate", 260);
+            listView1.Columns.Add("Name", 120);
+            listView1.Columns.Add("Difficulty", 95);
+            listView1.Columns.Add("Attempts", 95);
+            listView1.Columns.Add("Success Rate", 95);
+            listView1.Columns.Add("Created On", 95);
+
 
             foreach (LcProblem prob in problems.ProblemList)
             {
@@ -131,6 +135,7 @@ namespace LeetCodeTracker
             item.SubItems.Add(GetDifficulty(prob.Difficulty));
             item.SubItems.Add(prob.Attempts.ToString());
             item.SubItems.Add(prob.SuccessRate.ToString("P0"));
+            item.SubItems.Add(prob.CreatedAt.ToString("MM/dd/yy"));
             listView1.Items.Add(item);
         }
 
@@ -147,7 +152,7 @@ namespace LeetCodeTracker
             return "hard";
         }
 
-        private void listView1_MouseDown(object sender, MouseEventArgs e)
+        private void listView1_MouseDown(object sender, MouseEventArgs e) 
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -164,14 +169,15 @@ namespace LeetCodeTracker
         {
             if (rightClickedItem != null)
             {
-                for (int i = 0; i < problems.ProblemList.Count; i++)
-                {
-                    if (problems.ProblemList[i].Name == rightClickedItem.Text)
-                    {
-                        problems.ProblemList.RemoveAt(i);
-                        break;
-                    }
-                }
+                //for (int i = 0; i < problems.ProblemList.Count; i++)
+                //{
+                //    if (problems.ProblemList[i].Name == rightClickedItem.Text)
+                //    {
+                //        problems.ProblemList.RemoveAt(i);
+                //        break;
+                //    }
+                //}
+                problems.RemoveProblem(rightClickedItem.Text);
             }
 
             PopulateListView(FindCheckedRadioButton());
@@ -211,6 +217,9 @@ namespace LeetCodeTracker
                     break;
                 case 2:
                     sortBy = SortBy.SuccessRate;
+                    break;
+                case 3:
+                    sortBy = SortBy.Date;
                     break;
                 default:
                     return;

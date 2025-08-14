@@ -20,15 +20,12 @@ namespace LeetCodeTracker
             PracticeProblem = problem;
             Problems = problems;
 
-            // UI init after InitializeComponent
             linkLabel1.Text = PracticeProblem?.Name ?? "(no problem)";
 
-            // Timer setup
-            timer1.Interval = 100;              // 0.1s refresh
-            timer1.Tick -= timer1_Tick;         // ensure no duplicate handlers
+            timer1.Interval = 100;        
+            timer1.Tick -= timer1_Tick;         
             timer1.Tick += timer1_Tick;
 
-            // Start label at 20:00.0
             TimerLabel.Text = _target.ToString(@"mm\:ss\.f");
         }
 
@@ -51,7 +48,6 @@ namespace LeetCodeTracker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Pick a new random problem and update the link label
             PracticeProblem = Problems.getRandProblem();
             linkLabel1.Text = PracticeProblem?.Name ?? "(no problem)";
         }
@@ -71,7 +67,7 @@ namespace LeetCodeTracker
         private void TimerResetBtn_Click(object sender, EventArgs e)
         {
             _sw.Reset();
-            TimerLabel.Text = _target.ToString(@"mm\:ss\.f"); // back to 20:00.0
+            TimerLabel.Text = _target.ToString(@"mm\:ss\.f"); 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -87,6 +83,21 @@ namespace LeetCodeTracker
             }
 
             TimerLabel.Text = remaining.ToString(@"mm\:ss\.f");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            if (checkBox1.Checked)
+            {
+                PracticeProblem.SuccessfulAttempts += 1;
+                PracticeProblem.Attempts += 1;
+            }
+            else
+            {
+                PracticeProblem.Attempts += 1;
+            }
+            this.Close();
         }
     }
 }

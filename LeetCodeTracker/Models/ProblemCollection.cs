@@ -13,6 +13,7 @@ namespace LeetCodeTracker.Models
         Difficulty,
         Attempts,
         SuccessRate,
+        Date,
     }
 
     public class ProblemCollection        
@@ -40,6 +41,27 @@ namespace LeetCodeTracker.Models
                 return true;
             }
         }
+
+        public void RemoveProblem(string name)
+        {
+            for (int i = 0; i < ProblemList.Count; i++)
+            {
+                if (ProblemList[i].Name == name)
+                {
+                    ProblemList.RemoveAt(i);
+                    break;
+                }
+            }
+            for (int i = 0; i < ProblemNames.Count; i++)
+            {
+                if (ProblemNames[i] == name)
+                {
+                    ProblemNames.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
 
         public LcProblem getProblem(int idx)
         {
@@ -77,7 +99,17 @@ namespace LeetCodeTracker.Models
                         ? ProblemList.OrderByDescending(p => p.SuccessRate).ToList()
                         : ProblemList.OrderBy(p => p.SuccessRate).ToList();
                     break;
+                case (SortBy.Date):
+                    ProblemList = descending
+                        ? ProblemList.OrderByDescending(p => p.CreatedAt).ToList()
+                        : ProblemList.OrderBy(p => p.CreatedAt).ToList();
+                    break;
             }
+        }
+
+        public bool IsEmpty()
+        {
+            return ProblemList.Count() == 0;
         }
 
     }
