@@ -50,7 +50,7 @@
             resources.ApplyResources(button1, "button1");
             button1.Name = "button1";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // button2
             // 
@@ -58,7 +58,7 @@
             resources.ApplyResources(button2, "button2");
             button2.Name = "button2";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // listView1
             // 
@@ -71,8 +71,8 @@
             listView1.Name = "listView1";
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
-            listView1.ColumnClick += listView1_ColumnClick;
-            listView1.MouseDown += listView1_MouseDown;
+            listView1.ColumnClick += ListView1_ColumnClick;
+            listView1.MouseDown += ListView1_MouseDown;
             // 
             // contextMenuStrip1
             // 
@@ -85,7 +85,7 @@
             // 
             deletetoolStripMenuItem.Name = "deletetoolStripMenuItem";
             resources.ApplyResources(deletetoolStripMenuItem, "deletetoolStripMenuItem");
-            deletetoolStripMenuItem.Click += deletetoolStripMenuItem_Click;
+            deletetoolStripMenuItem.Click += DeletetoolStripMenuItem_Click;
             // 
             // rdBtnEasy
             // 
@@ -94,7 +94,7 @@
             rdBtnEasy.Name = "rdBtnEasy";
             rdBtnEasy.TabStop = true;
             rdBtnEasy.UseVisualStyleBackColor = false;
-            rdBtnEasy.CheckedChanged += rdBtnEasy_CheckedChanged;
+            rdBtnEasy.CheckedChanged += RdBtnEasy_CheckedChanged;
             // 
             // rdBtnMed
             // 
@@ -103,7 +103,7 @@
             rdBtnMed.Name = "rdBtnMed";
             rdBtnMed.TabStop = true;
             rdBtnMed.UseVisualStyleBackColor = false;
-            rdBtnMed.CheckedChanged += rdBtnMed_CheckedChanged;
+            rdBtnMed.CheckedChanged += RdBtnMed_CheckedChanged;
             // 
             // rdBtnHard
             // 
@@ -112,7 +112,7 @@
             rdBtnHard.Name = "rdBtnHard";
             rdBtnHard.TabStop = true;
             rdBtnHard.UseVisualStyleBackColor = false;
-            rdBtnHard.CheckedChanged += rdBtnHard_CheckedChanged;
+            rdBtnHard.CheckedChanged += RdBtnHard_CheckedChanged;
             // 
             // rdBtnAll
             // 
@@ -121,7 +121,7 @@
             rdBtnAll.Name = "rdBtnAll";
             rdBtnAll.TabStop = true;
             rdBtnAll.UseVisualStyleBackColor = false;
-            rdBtnAll.CheckedChanged += rdBtnAll_CheckedChanged;
+            rdBtnAll.CheckedChanged += RdBtnAll_CheckedChanged;
             // 
             // label1
             // 

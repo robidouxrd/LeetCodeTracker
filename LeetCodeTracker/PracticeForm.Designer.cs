@@ -83,7 +83,7 @@
             linkLabel1.TabIndex = 10;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "None";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            linkLabel1.LinkClicked += LinkLabel1_LinkClicked;
             // 
             // button1
             // 
@@ -99,7 +99,7 @@
             button1.TabIndex = 11;
             button1.Text = "Randomize";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // checkBox1
             // 
@@ -127,11 +127,11 @@
             button2.TabIndex = 13;
             button2.Text = "Finish";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // timer1
             // 
-            timer1.Tick += timer1_Tick;
+            timer1.Tick += Timer1_Tick;
             // 
             // TimerStartBtn
             // 

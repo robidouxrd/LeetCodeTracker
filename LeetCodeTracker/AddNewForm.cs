@@ -21,7 +21,7 @@ namespace LeetCodeTracker
             InitializeComponent();
         }
 
-        private void addProblemBtn_Click(object sender, EventArgs e)
+        private void AddProblemBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             if (easyRadio.Checked)

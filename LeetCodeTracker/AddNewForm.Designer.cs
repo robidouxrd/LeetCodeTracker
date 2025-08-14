@@ -134,7 +134,7 @@
             addProblemBtn.TabIndex = 10;
             addProblemBtn.Text = "Add";
             addProblemBtn.UseVisualStyleBackColor = false;
-            addProblemBtn.Click += addProblemBtn_Click;
+            addProblemBtn.Click += AddProblemBtn_Click;
             // 
             // AddNewForm
             // 

@@ -23,18 +23,18 @@ namespace LeetCodeTracker
             linkLabel1.Text = PracticeProblem?.Name ?? "(no problem)";
 
             timer1.Interval = 100;        
-            timer1.Tick -= timer1_Tick;         
-            timer1.Tick += timer1_Tick;
+            timer1.Tick -= Timer1_Tick;         
+            timer1.Tick += Timer1_Tick;
 
             TimerLabel.Text = _target.ToString(@"mm\:ss\.f");
         }
 
-        public void changeProblemName(string name)
+        public void ChangeProblemName(string name)
         {
             linkLabel1.Text = name;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(PracticeProblem?.Link))
             {
@@ -46,9 +46,9 @@ namespace LeetCodeTracker
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            PracticeProblem = Problems.getRandProblem();
+            PracticeProblem = Problems.GetRandProblem();
             linkLabel1.Text = PracticeProblem?.Name ?? "(no problem)";
         }
 
@@ -70,7 +70,7 @@ namespace LeetCodeTracker
             TimerLabel.Text = _target.ToString(@"mm\:ss\.f"); 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             var remaining = _target - _sw.Elapsed;
 
@@ -85,7 +85,7 @@ namespace LeetCodeTracker
             TimerLabel.Text = remaining.ToString(@"mm\:ss\.f");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             if (checkBox1.Checked)

@@ -41,12 +41,12 @@ namespace LeetCodeTracker
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             AddNewForm addNewPopUp = new AddNewForm();
             addNewPopUp.ShowDialog();
             LcProblem newProblem = new LcProblem(addNewPopUp.ProblemName, addNewPopUp.ProblemDescripion, addNewPopUp.ProblemDifficulty);
-            problems.addProblem(newProblem);
+            problems.AddProblem(newProblem);
             PopulateListView(FindCheckedRadioButton());
             foreach (LcProblem prob in problems.ProblemList) 
             {
@@ -55,18 +55,18 @@ namespace LeetCodeTracker
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (!problems.IsEmpty())
             {
-                PracticeForm randPopUp = new PracticeForm(getProbFromListView(), problems);
+                PracticeForm randPopUp = new PracticeForm(GetProbFromListView(), problems);
                 randPopUp.ShowDialog();
                 PopulateListView(FindCheckedRadioButton());
             }
 
         }
 
-        private LcProblem getProbFromListView()
+        private LcProblem GetProbFromListView()
         {
             if (listView1.SelectedItems.Count > 0)
             {
@@ -81,26 +81,26 @@ namespace LeetCodeTracker
                     }
                 }
             }
-            return problems.getRandProblem();
+            return problems.GetRandProblem();
 
         }
 
-        private void rdBtnEasy_CheckedChanged(object sender, EventArgs e)
+        private void RdBtnEasy_CheckedChanged(object sender, EventArgs e)
         {
             PopulateListView(1);
         }
 
-        private void rdBtnMed_CheckedChanged(object sender, EventArgs e)
+        private void RdBtnMed_CheckedChanged(object sender, EventArgs e)
         {
             PopulateListView(2);
         }
 
-        private void rdBtnHard_CheckedChanged(object sender, EventArgs e)
+        private void RdBtnHard_CheckedChanged(object sender, EventArgs e)
         {
             PopulateListView(3);
         }
 
-        private void rdBtnAll_CheckedChanged(object sender, EventArgs e)
+        private void RdBtnAll_CheckedChanged(object sender, EventArgs e)
         {
             PopulateListView(4);
         }
@@ -152,7 +152,7 @@ namespace LeetCodeTracker
             return "hard";
         }
 
-        private void listView1_MouseDown(object sender, MouseEventArgs e) 
+        private void ListView1_MouseDown(object sender, MouseEventArgs e) 
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -165,18 +165,10 @@ namespace LeetCodeTracker
             }
         }
 
-        private void deletetoolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeletetoolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (rightClickedItem != null)
             {
-                //for (int i = 0; i < problems.ProblemList.Count; i++)
-                //{
-                //    if (problems.ProblemList[i].Name == rightClickedItem.Text)
-                //    {
-                //        problems.ProblemList.RemoveAt(i);
-                //        break;
-                //    }
-                //}
                 problems.RemoveProblem(rightClickedItem.Text);
             }
 
@@ -204,7 +196,7 @@ namespace LeetCodeTracker
             }
         }
 
-        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void ListView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             SortBy sortBy;
             switch (e.Column)

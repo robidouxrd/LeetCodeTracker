@@ -28,7 +28,7 @@ namespace LeetCodeTracker.Models
             ProblemNames = new List<string> ();
         }
 
-        public bool addProblem(LcProblem problem)
+        public bool AddProblem(LcProblem problem)
         {
             if (ProblemNames.Contains(problem.Name))
             {
@@ -63,12 +63,12 @@ namespace LeetCodeTracker.Models
         }
 
 
-        public LcProblem getProblem(int idx)
+        public LcProblem GetProblem(int idx)
         {
             return ProblemList[idx];
         }
 
-        public LcProblem getRandProblem()
+        public LcProblem GetRandProblem()
         {
             Random randGenerator = new Random();
             int randInt = randGenerator.Next(0, ProblemList.Count);
